@@ -1,7 +1,7 @@
 {
-  "name": "portafolio",
+  "name": "fuzzylogic",
   "version": "1.0.0",
-  "description": "This is me: Javier Carpio",
+  "description": "Fuzzy logic implementation",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -10,14 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/javiercarpio57/Portafolio.git"
+    "url": "git+https://github.com/javiercarpio57/fuzzy_logic.git"
   },
   "author": "Javier Carpio",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/javiercarpio57/Portafolio/issues"
-  },
-  "homepage": "https://github.com/javiercarpio57/Portafolio#readme",
+  "homepage": "https://github.com/javiercarpio57/fuzzy_logic.git",
   "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
@@ -31,17 +28,19 @@
     "eslint-loader": "^3.0.2",
     "file-loader": "^4.3.0",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.13.0",
+    "is-obj": "^2.0.0",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "rsuite": "^4.8.4",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "svg-url-loader": "^3.0.3",
     "url-loader": "^2.3.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.11.0"
   }
 }

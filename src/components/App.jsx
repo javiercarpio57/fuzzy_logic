@@ -12,7 +12,7 @@ export default class App extends React.Component {
     render () {
         return (
             <div>
-                <h1>Hola, soy un sample.</h1>
+                <h1>Fuzzy Logic.</h1>
             </div>
         )
     }

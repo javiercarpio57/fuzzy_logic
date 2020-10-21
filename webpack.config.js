@@ -15,17 +15,14 @@ module.exports = {
             template: './src/index.html',
             filename: 'index.html',
             inject: 'body'
-        }),
-        new CopyWebpackPlugin([
-            { from: 'src/images', to: 'images' }
-        ])
+        })
     ],
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ["babel-loader", "eslint-loader"]
+                use: ["babel-loader"]
             },
             {
                 test: /\.css$/,
