@@ -1,0 +1,32 @@
+.field {
+    width: 1100px;
+    height: 550px;
+    background-color: rgb(10, 100, 10);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 2px solid black;
+}
+
+.porteria {
+    width: 125px;
+    height: 400px;
+    border: 5px solid white;
+    border-right: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.field-position {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.goal {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50px;
+}
