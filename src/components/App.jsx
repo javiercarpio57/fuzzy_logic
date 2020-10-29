@@ -125,8 +125,6 @@ export default class App extends React.Component {
     }
 
     control_difuso(distancia, angulo) {
-        console.log('DIST:', distancia)
-        console.log('ANGULO', angulo)
         // AND -> MIN
 
         // Si la distancia es lejos y el giro es mucho
@@ -194,9 +192,6 @@ export default class App extends React.Component {
 
         const x_ball = this.getRandom(this.state.left_corner.left, this.state.right_corner.left)
         const y_ball = this.getRandom(this.state.left_corner.top, this.state.right_corner.top)
-        
-        console.log('PLAYER:', x_player, y_player)
-        console.log('BALL:', x_ball, y_ball)
 
         this.setState({
             has_simulation_start: true,
@@ -214,39 +209,40 @@ export default class App extends React.Component {
             + (Math.pow(this.state.player_position.top - this.state.ball_position.top, 2))
         )
 
-        const delta_y = -this.state.ball_position.top + this.state.player_position.top
-        const delta_x = this.state.ball_position.left - this.state.player_position.left
-        let angulo_mover = Math.atan(delta_y / delta_x) * (180 / Math.PI)
-        if ((delta_y < 0) && (delta_x < 0)) {
-            angulo_mover += 180
-        } else if (delta_y < 0) {
-            angulo_mover += 360
-        } else if (delta_x < 0) {
-            angulo_mover += 180
+        if (distancia_total > 20) {
+            const delta_y = -this.state.ball_position.top + this.state.player_position.top
+            const delta_x = this.state.ball_position.left - this.state.player_position.left
+            let angulo_mover = Math.atan(delta_y / delta_x) * (180 / Math.PI)
+            if ((delta_y < 0) && (delta_x < 0)) {
+                angulo_mover += 180
+            } else if (delta_y < 0) {
+                angulo_mover += 360
+            } else if (delta_x < 0) {
+                angulo_mover += 180
+            }
+    
+            let angulo_relativo = this.realAngle(this.state.player_rotation)
+            let real_angle = angulo_mover - angulo_relativo
+            if (real_angle < 0) {
+                real_angle += 360
+            }
+    
+            const result = this.control_difuso(distancia_total, real_angle)
+    
+            // TODO:
+            // Realizar el defuzzy al contenido de -result-, que tiene ángulo y movimiento.
+            // Sustituir ese defuzzy por this.state.angle y this.state.distance
+    
+            const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360  * Math.PI / 180) * this.state.distance
+            const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360 * Math.PI / 180) * this.state.distance
+
+            this.setState({
+                player_position: { top: this.state.player_position.top - mov_y, left: this.state.player_position.left + mov_x },
+                player_rotation: this.realAngle((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
+            })
+        } else {
+            this.kickBall()
         }
-
-        let angulo_relativo = this.realAngle(this.state.player_rotation)
-        console.log('ANGLES: ', angulo_mover, angulo_relativo)
-        let real_angle = angulo_mover - angulo_relativo
-        if (real_angle < 0) {
-            real_angle += 360
-        }
-
-        const result = this.control_difuso(distancia_total, real_angle)
-
-        // TODO:
-        // Realizar el defuzzy al contenido de -result-, que tiene ángulo y movimiento.
-        // Sustituir ese defuzzy por this.state.angle y this.state.distance
-
-        const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360  * Math.PI / 180) * this.state.distance
-        const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360 * Math.PI / 180) * this.state.distance
-
-        console.log(mov_x, mov_y)
-        console.log((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
-        this.setState({
-            player_position: { top: this.state.player_position.top - mov_y, left: this.state.player_position.left + mov_x },
-            player_rotation: this.realAngle((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
-        })
     }
 
     realAngle(HTMLangle) {
@@ -264,6 +260,38 @@ export default class App extends React.Component {
         }
 
         return angulo_relativo
+    }
+
+    kickBall() {
+        const goal = document.getElementById('goal')
+        const goal_position = this.offset(goal)
+        
+        const ball = document.getElementById('ball')
+        const b_position = this.offset(ball)
+
+        const angulo_tiro = (
+            Math.atan((-b_position.top + goal_position.top) / (b_position.left - goal_position.left))
+        ) * 180 / Math.PI
+
+        const variacion_angulo = (Math.random() * (45 + 45 + 1) - 45) + angulo_tiro
+
+        const new_ball_position = {
+            top: this.state.ball_position.top - Math.sin(variacion_angulo * Math.PI / 180) * 120,
+            left: this.state.ball_position.left + Math.cos(variacion_angulo * Math.PI / 180) * 120
+        }
+
+        this.setState({
+            ball_position: new_ball_position
+        })
+
+        const ball_after = document.getElementById('ball')
+        const b_position_after = this.offset(ball_after)
+        if (b_position_after.left >= goal_position.left) {
+            // this.setState({
+            //     has_simulation_start: false
+            // })
+            clearInterval(this.simulacion)
+        }
     }
 
     render () {

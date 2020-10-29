@@ -49,7 +49,7 @@ export default class Field extends React.Component {
 
                 {
                     this.props.has_start ?
-                    <div className="ball" style={position_ball} /> :
+                    <div id="ball" className="ball" style={position_ball} /> :
                     null
                 }
             </div>
