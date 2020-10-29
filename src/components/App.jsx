@@ -234,6 +234,10 @@ export default class App extends React.Component {
 
         const result = this.control_difuso(distancia_total, real_angle)
 
+        // TODO:
+        // Realizar el defuzzy al contenido de -result-, que tiene ángulo y movimiento.
+        // Sustituir ese defuzzy por this.state.angle y this.state.distance
+
         const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360  * Math.PI / 180) * this.state.distance
         const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360 * Math.PI / 180) * this.state.distance
 
