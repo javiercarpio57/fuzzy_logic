@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'rsuite'
+import { Button, InputNumber } from 'rsuite'
 import Field from './Field/Field.jsx'
 import './style.scss'
 
@@ -70,7 +70,35 @@ export default class App extends React.Component {
         super(props)
 
         this.state = {
+            ball_position: { top: 200, left: 200 },
+            player_position: { top: 300, left: 300 },
+            player_rotation: 0,
+            left_corner: null,
+            right_corner: null,
+            has_simulation_start: false,
+            distance: 0,
+            angle: 0
         }
+
+        this.intervalId = setInterval(() => {
+            this.getCorners()
+            this.removeInterval()
+        }, 500)
+
+        this.handleDistance = this.handleDistance.bind(this);
+        this.handleAngle = this.handleAngle.bind(this);
+    }
+
+    handleDistance(value) {
+        this.setState({
+            distance: value
+        })
+    }
+
+    handleAngle(value) {
+        this.setState({
+            angle: value
+        })
     }
 
     get_implication(original_chart, clausula) {
@@ -128,6 +156,7 @@ export default class App extends React.Component {
             avanzar: avanzar_agg,
             girar: girar_agg
         }
+        console.log(output)
 
         return output
     }
@@ -139,15 +168,98 @@ export default class App extends React.Component {
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
     }
 
-    showInfo() {
-        var div = document.getElementById('goal')
-        var divOffset = this.offset(div)
-        console.log(divOffset.left, divOffset.top)
+    getCorners() {
+        var supIz = document.getElementById('SuperiorIzquierda')
+        var infDer = document.getElementById('InferiorDerecha')
+        
+        const posSupIz = this.offset(supIz)
+        const posInfDer = this.offset(infDer)
+        this.setState({
+            left_corner: posSupIz,
+            right_corner: posInfDer
+        })
+    }
 
-        const distancia = 1000
-        const angulo = 140
-        const salida = this.control_difuso(distancia, angulo)
-        console.log(salida)
+    getRandom(minimo, maximo) {
+        return Math.floor((Math.random() * (maximo - minimo + 1)) + minimo)
+    }
+
+    removeInterval() {
+        clearInterval(this.intervalId)
+    }
+
+    empezarSimulacion() {
+        const x_player = this.getRandom(this.state.left_corner.left, this.state.right_corner.left)
+        const y_player = this.getRandom(this.state.left_corner.top, this.state.right_corner.top)
+
+        const x_ball = this.getRandom(this.state.left_corner.left, this.state.right_corner.left)
+        const y_ball = this.getRandom(this.state.left_corner.top, this.state.right_corner.top)
+        
+        console.log('PLAYER:', x_player, y_player)
+        console.log('BALL:', x_ball, y_ball)
+
+        this.setState({
+            has_simulation_start: true,
+            player_position: { top: y_player, left: x_player },
+            ball_position: { top: y_ball, left: x_ball },
+            player_rotation: this.getRandom(0, 360)
+        })
+
+        this.simulacion = setInterval(() => this.ejecutarMovimiento(), 500)
+    }
+
+    ejecutarMovimiento() {
+        const distancia_total = Math.sqrt(
+            (Math.pow(this.state.player_position.left - this.state.ball_position.left, 2))
+            + (Math.pow(this.state.player_position.top - this.state.ball_position.top, 2))
+        )
+
+        const delta_y = -this.state.ball_position.top + this.state.player_position.top
+        const delta_x = this.state.ball_position.left - this.state.player_position.left
+        let angulo_mover = Math.atan(delta_y / delta_x) * (180 / Math.PI)
+        if ((delta_y < 0) && (delta_x < 0)) {
+            angulo_mover += 180
+        } else if (delta_y < 0) {
+            angulo_mover += 360
+        } else if (delta_x < 0) {
+            angulo_mover += 180
+        }
+
+        let angulo_relativo = this.realAngle(this.state.player_rotation)
+        console.log('ANGLES: ', angulo_mover, angulo_relativo)
+        let real_angle = angulo_mover - angulo_relativo
+        if (real_angle < 0) {
+            real_angle += 360
+        }
+
+        const result = this.control_difuso(distancia_total, real_angle)
+
+        const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360  * Math.PI / 180) * this.state.distance
+        const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360 * Math.PI / 180) * this.state.distance
+
+        console.log(mov_x, mov_y)
+        console.log((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
+        this.setState({
+            player_position: { top: this.state.player_position.top - mov_y, left: this.state.player_position.left + mov_x },
+            player_rotation: this.realAngle((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
+        })
+    }
+
+    realAngle(HTMLangle) {
+        let angulo_relativo = HTMLangle
+        if ((angulo_relativo >= 0) && (angulo_relativo <= 90)) {
+            angulo_relativo = 90 - angulo_relativo
+        } else if ((angulo_relativo >= 90) && (angulo_relativo <= 180)) {
+            angulo_relativo = 90 - angulo_relativo
+            angulo_relativo += 360
+        } else if ((angulo_relativo >= 180) && (angulo_relativo <= 270)) {
+            angulo_relativo = 270 - angulo_relativo
+            angulo_relativo += 180
+        } else if ((angulo_relativo >= 270) && (angulo_relativo <= 360)) {
+            angulo_relativo = 180 - (angulo_relativo - 270)
+        }
+
+        return angulo_relativo
     }
 
     render () {
@@ -155,9 +267,27 @@ export default class App extends React.Component {
             <div>
                 <div className="titulo">
                     <h1>Fuzzy Logic.</h1>
-                    <Button onClick={() => this.showInfo()}>Mostrar info</Button>
+                    <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '20px' }}>
+                        <div style={{ width: 160 }}>
+                            <InputNumber placeholder='Distancia' value={this.state.distance} onChange={this.handleDistance} step={1} />
+                        </div>
+
+                        <div style={{ width: 160 }}>
+                            <InputNumber placeholder='Angulo' value={this.state.angle} onChange={this.handleAngle} step={1} />
+                        </div>
+
+                        {
+                            !this.state.has_simulation_start ?
+                            <Button onClick={() => this.empezarSimulacion()}>Empezar simulacion</Button> :
+                            null
+                        }
+                    </div>
                 </div>
-                <Field />
+                <Field player={this.state.player_position}
+                       playerRotation={this.state.player_rotation}
+                       ball={this.state.ball_position}
+                       has_start={this.state.has_simulation_start} 
+                />
             </div>
         )
     }
