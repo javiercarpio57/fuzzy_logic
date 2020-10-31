@@ -31,13 +31,14 @@ const fuzzy_distancia_cerca = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-const fuzzy_giro_mucho = [1.0, 1.0, 0.99, 0.99, 0.98, 0.98, 0.98, 0.97, 0.97, 0.96, 0.96, 0.96, 0.95, 0.95, 0.94, 0.94, 0.94, 0.93, 0.93, 0.92, 0.92, 0.92, 0.91, 0.91, 0.9, 0.9, 0.9, 0.89, 0.89, 0.88, 0.88, 0.87, 0.87, 0.87, 0.86, 0.86, 0.85, 0.85, 0.84, 0.84, 0.83, 0.83, 0.83, 0.82, 0.82, 0.81, 0.81, 0.8, 0.8, 0.79, 0.79, 0.78, 0.78, 0.77, 0.77, 0.77, 0.76, 0.76, 0.75, 0.75, 0.74, 0.74, 
-    0.73, 0.73, 0.72, 0.72, 0.71, 0.71, 0.7, 0.7, 0.69, 0.69, 0.68, 0.68, 0.67, 0.67, 0.66, 0.66, 0.65, 0.65, 0.64, 0.64, 0.63, 0.63, 0.62, 0.62, 0.61, 0.6, 0.6, 0.59, 0.59, 0.58, 0.58, 0.57, 0.57, 0.56, 0.56, 0.55, 0.54, 0.54, 0.53, 0.53, 0.52, 0.52, 0.51, 0.5, 0.5, 0.49, 0.49, 0.48, 0.48, 0.47, 0.46, 0.46, 0.45, 0.45, 0.44, 0.43, 0.43, 0.42, 0.42, 0.41, 0.4, 0.4, 0.39, 0.39, 0.38, 0.37, 0.37, 0.36, 0.35, 0.35, 0.34, 0.34, 0.33, 0.32, 0.32, 0.31, 0.3, 0.3, 0.29, 0.28, 0.28, 0.27, 0.26, 
-    0.26, 0.25, 0.24, 0.24, 0.23, 0.22, 0.22, 0.21, 0.2, 0.2, 0.19, 0.18, 0.18, 0.17, 0.16, 0.15, 0.15, 0.14, 0.13, 0.13, 0.12, 0.11, 0.1, 0.1, 0.09, 0.08, 0.07, 0.07, 0.06, 0.05, 0.04, 0.04, 0.03, 0.02, 0.01, 0.01]
+const fuzzy_giro_mucho = [0.0, 0.13, 0.21, 0.27, 0.31, 0.35, 0.38, 0.4, 0.42, 0.44, 0.46, 0.48, 0.5, 0.51, 0.52, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59, 0.6, 0.61, 0.61, 0.62, 0.63, 0.64, 0.64, 0.65, 0.66, 0.66, 0.67, 0.67, 0.68, 0.69, 0.69, 0.7, 0.7, 0.71, 0.71, 0.72, 0.72, 0.73, 0.73, 0.73, 0.74, 0.74, 0.75, 0.75, 0.76, 0.76, 0.76, 0.77, 0.77, 0.77, 0.78, 0.78, 0.78, 0.79, 0.79, 0.79, 0.8, 0.8, 0.8, 0.81, 0.81, 0.81, 0.81, 0.82, 0.82, 0.82, 0.83, 0.83, 0.83, 0.83, 0.84, 0.84, 0.84, 0.84, 0.85, 0.85, 0.85, 0.85, 0.86, 0.86, 0.86, 0.86, 0.86, 0.87, 0.87, 0.87, 0.87, 0.87, 0.88, 0.88, 0.88, 0.88, 0.88, 0.89, 0.89, 0.89, 0.89, 0.89, 0.9, 0.9, 0.9, 0.9, 0.9, 0.91, 0.91, 0.91, 0.91, 0.91, 0.91, 0.92, 0.92, 0.92, 0.92, 0.92, 0.92, 0.93, 0.93, 0.93, 0.93, 0.93, 0.93, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0, 1.0, 1.0, 1.0, 1, 1, 1, 1, 1, 1, 1.0, 1.0, 1.0, 1.0, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.93, 0.93, 0.93, 0.93, 0.93, 0.93, 0.92, 0.92, 0.92, 0.92, 0.92, 0.92, 0.91, 0.91, 0.91, 0.91, 0.91, 0.91, 0.9, 0.9, 0.9, 0.9, 0.9, 0.89, 0.89, 0.89, 0.89, 0.89, 0.88, 0.88, 0.88, 0.88, 0.88, 0.87, 0.87, 0.87, 0.87, 0.87, 0.86, 0.86, 0.86, 0.86, 0.86, 0.85, 0.85, 0.85, 0.85, 0.84, 0.84, 0.84, 0.84, 0.83, 0.83, 0.83, 0.83, 0.82, 0.82, 0.82, 0.81, 0.81, 0.81, 0.81, 0.8, 0.8, 0.8, 0.79, 0.79, 0.79, 0.78, 0.78, 0.78, 0.77, 0.77, 0.77, 0.76, 0.76, 0.76, 0.75, 0.75, 0.74, 0.74, 0.73, 0.73, 0.73, 0.72, 0.72, 0.71, 0.71, 0.7, 0.7, 0.69, 0.69, 0.68, 0.67, 0.67, 0.66, 0.66, 0.65, 0.64, 0.64, 0.63, 0.62, 0.61, 0.61, 0.6, 0.59, 0.58, 0.57, 0.56, 0.55, 0.54, 0.52, 0.51, 0.5, 0.48, 0.46, 0.44, 0.42, 0.4, 0.38, 0.35, 0.31, 0.27, 0.21, 0.13, 0.0, 0.0]
 
-const fuzzy_giro_poco = [0.0, 0.13, 0.21, 0.27, 0.31, 0.35, 0.38, 0.4, 0.42, 0.44, 0.46, 0.48, 0.5, 0.51, 0.52, 0.54, 0.55, 0.56, 0.57, 0.58, 0.59, 0.6, 0.61, 0.61, 0.62, 0.63, 0.64, 0.64, 0.65, 0.66, 0.66, 0.67, 0.67, 0.68, 0.69, 0.69, 0.7, 0.7, 0.71, 0.71, 0.72, 0.72, 0.73, 0.73, 0.73, 0.74, 0.74, 0.75, 0.75, 0.76, 0.76, 0.76, 0.77, 0.77, 0.77, 0.78, 0.78, 0.78, 0.79, 0.79, 0.79, 0.8, 
-    0.8, 0.8, 0.81, 0.81, 0.81, 0.81, 0.82, 0.82, 0.82, 0.83, 0.83, 0.83, 0.83, 0.84, 0.84, 0.84, 0.84, 0.85, 0.85, 0.85, 0.85, 0.86, 0.86, 0.86, 0.86, 0.86, 0.87, 0.87, 0.87, 0.87, 0.87, 0.88, 0.88, 0.88, 0.88, 0.88, 0.89, 0.89, 0.89, 0.89, 0.89, 
-    0.9, 0.9, 0.9, 0.9, 0.9, 0.91, 0.91, 0.91, 0.91, 0.91, 0.91, 0.92, 0.92, 0.92, 0.92, 0.92, 0.92, 0.93, 0.93, 0.93, 0.93, 0.93, 0.93, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.94, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.97, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.98, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 1.0, 1.0, 1.0, 1.0, 1, 1, 1, 1]
+const fuzzy_giro_poco = [1.0, 1.0, 0.99, 0.99, 0.98, 0.98, 0.98, 0.97, 0.97, 0.96, 0.96, 0.96, 0.95, 0.95, 0.94, 0.94, 0.94, 0.93, 0.93, 0.92, 0.92, 0.92, 0.91, 0.91, 0.9, 0.9, 0.9, 0.89, 0.89, 0.88, 0.88, 0.87, 0.87, 0.87, 0.86, 0.86, 0.85, 0.85, 0.84, 0.84, 0.83, 0.83, 0.83, 0.82, 0.82, 0.81, 0.81, 0.8, 0.8, 0.79, 0.79, 0.78, 0.78, 0.77, 0.77, 
+    0.77, 0.76, 0.76, 0.75, 0.75, 0.74, 0.74, 0.73, 0.73, 0.72, 0.72, 0.71, 0.71, 0.7, 0.7, 0.69, 0.69, 0.68, 0.68, 0.67, 0.67, 0.66, 0.66, 0.65, 0.65, 0.64, 0.64, 0.63, 0.63, 0.62, 0.62, 0.61, 0.6, 0.6, 0.59, 0.59, 0.58, 0.58, 0.57, 0.57, 0.56, 0.56, 0.55, 0.54, 0.54, 0.53, 0.53, 0.52, 0.52, 0.51, 0.5, 0.5, 0.49, 0.49, 0.48, 
+    0.48, 0.47, 0.46, 0.46, 0.45, 0.45, 0.44, 0.43, 0.43, 0.42, 0.42, 0.41, 0.4, 0.4, 0.39, 0.39, 0.38, 0.37, 0.37, 0.36, 0.35, 0.35, 0.34, 0.34, 0.33, 0.32, 0.32, 0.31, 0.3, 0.3, 0.29, 0.28, 0.28, 0.27, 0.26, 0.26, 0.25, 0.24, 0.24, 0.23, 0.22, 0.22, 0.21, 0.2, 0.2, 0.19, 0.18, 0.18, 0.17, 0.16, 0.15, 0.15, 0.14, 0.13, 0.13, 
+    0.12, 0.11, 0.1, 0.1, 0.09, 0.08, 0.07, 0.07, 0.06, 0.05, 0.04, 0.04, 0.03, 0.02, 0.01, 0.01, 0.02, 0.03, 0.04, 0.04, 0.05, 0.06, 0.07, 0.07, 0.08, 0.09, 0.1, 0.1, 0.11, 0.12, 0.13, 0.13, 0.14, 0.15, 0.15, 0.16, 0.17, 0.18, 0.18, 0.19, 0.2, 0.2, 0.21, 0.22, 0.22, 0.23, 0.24, 0.24, 0.25, 0.26, 0.26, 0.27, 0.28, 0.28, 0.29, 
+    0.3, 0.3, 0.31, 0.32, 0.32, 0.33, 0.34, 0.34, 0.35, 0.35, 0.36, 0.37, 0.37, 0.38, 0.39, 0.39, 0.4, 0.4, 0.41, 0.42, 0.42, 0.43, 0.43, 0.44, 0.45, 0.45, 0.46, 0.46, 0.47, 0.48, 0.48, 0.49, 0.49, 0.5, 0.5, 0.51, 0.52, 0.52, 0.53, 0.53, 0.54, 0.54, 0.55, 0.56, 0.56, 0.57, 0.57, 0.58, 0.58, 0.59, 0.59, 0.6, 0.6, 0.61, 0.62, 0.62, 0.63, 0.63, 0.64, 0.64, 0.65, 0.65, 0.66, 0.66, 0.67, 0.67, 0.68, 0.68, 0.69, 0.69, 0.7, 0.7, 0.71, 0.71, 0.72, 0.72, 0.73, 0.73, 0.74, 0.74, 0.75, 0.75, 0.76, 0.76, 0.77, 0.77, 0.77, 0.78, 0.78, 0.79, 0.79, 0.8, 0.8, 0.81, 0.81, 0.82, 0.82, 0.83, 0.83, 0.83, 0.84, 0.84, 0.85, 0.85, 0.86, 0.86, 0.87, 0.87, 0.87, 0.88, 
+    0.88, 0.89, 0.89, 0.9, 0.9, 0.9, 0.91, 0.91, 0.92, 0.92, 0.92, 0.93, 0.93, 0.94, 0.94, 0.94, 0.95, 0.95, 0.96, 0.96, 0.96, 0.97, 0.97, 0.98, 0.98, 0.98, 0.99, 0.99, 1.0, 1.0, 1.0]
 
 const avanzar_mucho = [0, 0, 0, 0, 0, 0, 0.0, 0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88, 1.0, 1]
 const avanzar_poco = [1.0, 0.88, 0.75, 0.62, 0.5, 0.38, 0.25, 0.12, 0.0, 0, 0, 0, 0, 0, 0, 0]
@@ -83,7 +84,7 @@ export default class App extends React.Component {
         this.intervalId = setInterval(() => {
             this.getCorners()
             this.removeInterval()
-        }, 500)
+        }, 250)
 
         this.handleDistance = this.handleDistance.bind(this);
         this.handleAngle = this.handleAngle.bind(this);
@@ -124,26 +125,33 @@ export default class App extends React.Component {
         return agg
     }
 
-    control_difuso(distancia, angulo) {
+    control_difuso(distancia_, angulo_) {
+        const distancia = parseInt(distancia_)
+        const angulo = parseInt(angulo_)
+        // console.log('---', distancia, angulo, '---')
         // AND -> MIN
 
         // Si la distancia es lejos y el giro es mucho
         const clau_1 = Math.min(fuzzy_distancia_lejos[distancia], fuzzy_giro_mucho[angulo])
+        // console.log('CLAU1:', clau_1)
         const avanzar_output_1 = this.get_implication(avanzar_poco, clau_1)
         const girar_output_1 = this.get_implication(girar_mucho, clau_1)
 
         // Si la distancia es lejos y el giro es poco
         const clau_2 = Math.min(fuzzy_distancia_lejos[distancia], fuzzy_giro_poco[angulo])
+        // console.log('CLAU2:', clau_2)
         const avanzar_output_2 = this.get_implication(avanzar_mucho, clau_2)
         const girar_output_2 = this.get_implication(girar_poco, clau_2)
 
         // Si la distancia es cerca y el giro es mucho
         const clau_3 = Math.min(fuzzy_distancia_cerca[distancia], fuzzy_giro_mucho[angulo])
+        // console.log('CLAU3:', clau_3)
         const avanzar_output_3 = this.get_implication(avanzar_poco, clau_3)
         const girar_output_3 = this.get_implication(girar_mucho, clau_3)
 
         // Si la distancia es cerca y el giro es poco
         const clau_4 = Math.min(fuzzy_distancia_cerca[distancia], fuzzy_giro_poco[angulo])
+        // console.log('CLAU4:', clau_4)
         const avanzar_output_4 = this.get_implication(avanzar_poco, clau_4)
         const girar_output_4 = this.get_implication(girar_poco, clau_4)
 
@@ -154,7 +162,7 @@ export default class App extends React.Component {
             avanzar: avanzar_agg,
             girar: girar_agg
         }
-        console.log(output)
+        // console.log(output.girar)
 
         return output
     }
@@ -200,7 +208,7 @@ export default class App extends React.Component {
             player_rotation: this.getRandom(0, 360)
         })
 
-        this.simulacion = setInterval(() => this.ejecutarMovimiento(), 500)
+        this.simulacion = setInterval(() => this.ejecutarMovimiento(), 100)
     }
 
     ejecutarMovimiento() {
@@ -208,6 +216,7 @@ export default class App extends React.Component {
             (Math.pow(this.state.player_position.left - this.state.ball_position.left, 2))
             + (Math.pow(this.state.player_position.top - this.state.ball_position.top, 2))
         )
+        // console.log('DISTANCIA:', distancia_total)
 
         if (distancia_total > 20) {
             const delta_y = -this.state.ball_position.top + this.state.player_position.top
@@ -229,20 +238,33 @@ export default class App extends React.Component {
     
             const result = this.control_difuso(distancia_total, real_angle)
     
-            // TODO:
-            // Realizar el defuzzy al contenido de -result-, que tiene ángulo y movimiento.
-            // Sustituir ese defuzzy por this.state.angle y this.state.distance
+            const angle_deffuzy = this.defuzzificacion(result.girar, 6)
+            const movement_defuzzy = this.defuzzificacion(result.avanzar, 0.5)
+            // console.log('ANGLE D:', angle_deffuzy)
+            // console.log('MOV D', movement_defuzzy)
     
-            const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360  * Math.PI / 180) * this.state.distance
-            const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360 * Math.PI / 180) * this.state.distance
+            const mov_x = Math.cos((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(angle_deffuzy)) % 360  * Math.PI / 180) * movement_defuzzy
+            const mov_y = Math.sin((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(angle_deffuzy)) % 360 * Math.PI / 180) * movement_defuzzy
 
             this.setState({
                 player_position: { top: this.state.player_position.top - mov_y, left: this.state.player_position.left + mov_x },
-                player_rotation: this.realAngle((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(this.state.angle)) % 360)
+                player_rotation: this.realAngle((this.realAngle(parseInt(this.state.player_rotation)) + parseInt(angle_deffuzy)) % 360)
             })
         } else {
             this.kickBall()
         }
+    }
+
+    defuzzificacion(funcion, factor) {
+        let numerador = 0
+        let denominador = 0
+
+        for (let i = 0; i < funcion.length; i++) {
+            numerador += (i/factor) * funcion[i]
+            denominador += funcion[i]
+        }
+
+        return numerador / denominador
     }
 
     realAngle(HTMLangle) {
@@ -300,18 +322,10 @@ export default class App extends React.Component {
                 <div className="titulo">
                     <h1>Fuzzy Logic.</h1>
                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center', marginTop: '20px' }}>
-                        <div style={{ width: 160 }}>
-                            <InputNumber placeholder='Distancia' value={this.state.distance} onChange={this.handleDistance} step={1} />
-                        </div>
-
-                        <div style={{ width: 160 }}>
-                            <InputNumber placeholder='Angulo' value={this.state.angle} onChange={this.handleAngle} step={1} />
-                        </div>
-
                         {
                             !this.state.has_simulation_start ?
                             <Button onClick={() => this.empezarSimulacion()}>Empezar simulacion</Button> :
-                            null
+                            <Button onClick={() => this.kickBall()}>Patear bola</Button>
                         }
                     </div>
                 </div>
